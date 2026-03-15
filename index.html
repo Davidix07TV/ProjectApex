@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenF1 Live Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">OpenF1 API</p>
+          <h1>Dashboard Live F1</h1>
+        </div>
+        <button id="refreshBtn">Aggiorna dati</button>
+      </header>
+
+      <section class="summary-grid">
+        <article class="stat-card">
+          <p class="label">Sessione</p>
+          <p id="sessionName" class="value">—</p>
+          <p id="sessionDate" class="meta">—</p>
+        </article>
+        <article class="stat-card">
+          <p class="label">Piloti in pista</p>
+          <p id="driverCount" class="value">0</p>
+          <p class="meta">dati OpenF1</p>
+        </article>
+        <article class="stat-card">
+          <p class="label">Team presenti</p>
+          <p id="teamCount" class="value">0</p>
+          <p class="meta">dati OpenF1</p>
+        </article>
+        <article class="stat-card">
+          <p class="label">Ultimo aggiornamento</p>
+          <p id="lastUpdated" class="value">—</p>
+          <p class="meta">orario locale</p>
+        </article>
+      </section>
+
+      <main class="main-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Classifica attuale</h2>
+            <p>Ordinata per posizione più recente</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pos</th>
+                  <th>Pilota</th>
+                  <th>Team</th>
+                  <th>Numero</th>
+                  <th>Intervallo</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Piloti in pista</h2>
+            <p>Tutti i piloti della sessione selezionata</p>
+          </div>
+          <div id="driversGrid" class="drivers-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="driverCardTemplate">
+      <article class="driver-card">
+        <div class="driver-head">
+          <span class="driver-number"></span>
+          <span class="driver-code"></span>
+        </div>
+        <h3 class="driver-name"></h3>
+        <p class="driver-team"></p>
+        <p class="driver-country"></p>
+      </article>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
